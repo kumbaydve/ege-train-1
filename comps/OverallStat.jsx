@@ -5,7 +5,7 @@ import Percentage from './Percentage'
 import PickPraser from '../utility/pick-parser'
 
 export default function OverallStat(){
-    const [is_shader, setIsShader] = useState(false)
+    const [shader_ready, setShaderReady] = useState(false)
     const shader = useRef(null)
     const stat = useRef(null)
 
@@ -16,10 +16,7 @@ export default function OverallStat(){
         fetch('./data/shader.glsl')
         .then(res => res.text())
         .then(text => {
-            if (shader.current) { return }
-            
-            setIsShader(true)
-            console.log('Stat loaded');
+            setShaderReady(true)
 
             shader.current = <Shader style={{
                 width: '100%',
@@ -28,18 +25,17 @@ export default function OverallStat(){
         )
     }, [])
 
-    return <div style={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
+    return <div
+    className='flex items-center justify-center'
+    style={{
         maxWidth: '100%',
         marginTop: '5vh',
         aspectRatio: 2.5
     }}>
 
-        { is_shader && shader.current }
+        {shader_ready && shader.current}
         
-        { stat.current && <Percentage className='overall-stat' style={{ position: 'absolute' }}>{stat.current}</Percentage> }
+        {stat.current && <Percentage className='overall-stat' style={{position: 'absolute'}}>{stat.current}</Percentage>}
 
     </div>
 }

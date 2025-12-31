@@ -1,6 +1,6 @@
 import { useRef, useEffect } from "react"
 
-export default function Shader({ children, style, uniform, delta = 0.016 }){
+export default function Shader({children, style, uniform, delta = 0.016}){
     const self = useRef(null)
     const time = useRef(0)
     const animation_id = useRef(0)
@@ -29,7 +29,6 @@ export default function Shader({ children, style, uniform, delta = 0.016 }){
         const fragmentShader = gl.createShader(gl.FRAGMENT_SHADER)
         gl.shaderSource(fragmentShader, fragment)
         gl.compileShader(fragmentShader)
-        console.log('c');
 
         const shaderProgram = gl.createProgram()
         gl.attachShader(shaderProgram, vertexShader)
@@ -83,7 +82,7 @@ export default function Shader({ children, style, uniform, delta = 0.016 }){
         }
 
         const observer = new ResizeObserver((entries) => {
-            if (!self.current) { return }
+            if (!self.current) {return}
             
             self.current.width = entries[0].contentRect.width
             self.current.height = entries[0].contentRect.height

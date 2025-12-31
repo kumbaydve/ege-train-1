@@ -7,20 +7,11 @@ export default function LinkLit({children, to, style}){
         borderRadius: '1rem',
         ...style
     }}>
-        <Link to={to} style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            width: '100%',
-            height: '100%',
+        <Link to={to} className="flex flex-col items-center w-full h-full rounded-2xl decoration-0" style={{
             padding: '1rem 2.5rem 0.5rem 2.5rem',
-            background: '#080808',
-            borderRadius: '1rem',
-            textDecoration: 'none'
+            background: '#080808'
         }}>
-
             {children}
-
         </Link>
     </BorderLit>
 }

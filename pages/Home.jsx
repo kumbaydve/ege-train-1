@@ -6,13 +6,15 @@ export default function Home(){
     return <div className='bg'>
         <OverallStat/>
 
-        <div style={{
-            position: 'relative',
-            display: 'flex',
-            gap: '1.5rem',
+        <div
+        className='relative flex gap-6'
+        style={{
             marginBottom: '13vh'
         }}>
-            <div className='fill' style={{
+
+            <div
+            className='fill'
+            style={{
                 background: '#8c00ff70',
                 transform: 'scale(1.1)',
                 filter: 'blur(2.2rem)'
@@ -21,6 +23,7 @@ export default function Home(){
             <Select size='1.7rem'>{['пр.велегия', 'и']}</Select>
             <Select size='1.7rem'>{['пр.чуда', 'и']}</Select>
             <Select size='1.7rem'>{['пр.вереда', 'и']}</Select>
+            
         </div>
 
         <LevelPrevRows/>

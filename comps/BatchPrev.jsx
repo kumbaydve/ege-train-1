@@ -18,15 +18,9 @@ export default function BatchPrev({level, ix, word}){
 
         <h3>{ix + 1}. {word.split(' ')[0].replace('.', ' ' + word[word.length - 2] + ' ').toUpperCase()}</h3>
 
-        <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            width: '100%',
-            marginTop: '1rem',
-            gap: '1.5rem'
-        }}>
-            { stat_ready && <Stat>{stat.current}</Stat> }
-            { stat_ready && <Percentage className='lil-stat' blur={0.7} opacity={0.7}>{stat.current}</Percentage> }
+        <div className="flex items-center w-full mt-4 gap-6">
+            {stat_ready && <Stat>{stat.current}</Stat>}
+            {stat_ready && <Percentage className='lil-stat' blur={0.7} opacity={0.7}>{stat.current}</Percentage>}
         </div>
 
     </LinkLit>

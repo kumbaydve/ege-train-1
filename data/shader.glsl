@@ -70,15 +70,6 @@ void main()
         val = 1.0 - (8.0 + spread1 * spread2) * abs(length(uv * scalor) - k);
     }
 
-    /*float val;
-    float k = .23;
-    if (length(uv * scalor) - k < 0.){
-        val = 1. - (15. + spread) * abs(length(uv * scalor) - k);
-    }
-    else{
-        val = 1. - (8. + spread) * abs(length(uv * scalor) - k);
-    }*/
-    
     val = clamp(val, 0., 1.);
 
     gl_FragColor = vec4(val*val*val, val*val, val*val, val*val) * vec4(col, 1.);

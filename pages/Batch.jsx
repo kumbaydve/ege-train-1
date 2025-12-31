@@ -26,8 +26,6 @@ export default function SelectType(){
             pick_parser.current = new PickPraser()
             word_parser.current = new WordParser(level, batch, text, pick_parser.current)
 
-            console.log('loaded words:', word_parser.words);
-            
             word_parser.current.shuffle()
 
             setIx(0)
@@ -42,18 +40,14 @@ export default function SelectType(){
     }
 
     const pick = (i) => {
-        if (animating.current) { return }
+        if (animating.current) {return}
         
         if (word_parser.current.pair(ix)[3] == word_parser.current.variants[i]){
             setTimeout(next, 300)
         }
         else{
-            if (i === 1){
-                setRight(0)
-            }
-            else{
-                setRight(1)
-            }
+            if (i === 1) {setRight(0)}
+            else {setRight(1)}
 
             setTimeout(next, 1200)
         }
@@ -66,7 +60,11 @@ export default function SelectType(){
         }
     }
 
-    return <div className='bg' style={{justifyContent: 'center'}}>
+    return <div
+    className='bg'
+    style={{
+        justifyContent: 'center'
+    }}>
         {
             ix === -1 ?
             <h1>... ПОДОЖДИТЕ ...</h1>

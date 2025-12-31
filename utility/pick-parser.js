@@ -15,9 +15,7 @@ export default class PickPraser{
         let got_wrong = []
 
         if (level){
-            console.log('queried worst', level);
             if (!this.picks[level]){
-                console.log('no level');
                 return []
             }
 
@@ -45,13 +43,9 @@ export default class PickPraser{
             }
         }
 
-        console.log('got wrong:', JSON.stringify(got_wrong));
-
         got_wrong.sort((a, b) => a[0] - b[0])
         got_wrong = got_wrong.slice(0, worst_picked_limit)
         got_wrong.map(e => e.shift())
-
-        console.log(got_wrong);
 
         return got_wrong
     }
@@ -62,12 +56,8 @@ export default class PickPraser{
         
         if (level){
             if (!this.picks[level]){
-                console.log(this.picks, level);
-                console.log('level not spec');
                 return 0
             }
-
-            console.log('level spec');
 
             if (batch){
                 if (!this.picks[level][batch]){
@@ -83,7 +73,6 @@ export default class PickPraser{
             else{
                 for (const batch in this.picks[level]){
                     for (const word in this.picks[level][batch]){
-                        console.log(word);
                         successes += this.picks[level][batch][word][0].reduce((was, e) => was + e)
 
                         total += this.picks[level][batch][word][0].length
@@ -102,8 +91,6 @@ export default class PickPraser{
                 }
             }
         }
-
-        console.log(successes / total);
 
         return successes / total
     }

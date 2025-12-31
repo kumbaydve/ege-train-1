@@ -9,7 +9,14 @@ function colorLerp(color1, color2, frac) {
 }
 
 export default function Percentage({className, style, children, blur, opacity}){
-    return <Glare className={className} style={style} blur={blur} opacity={opacity} text={{
+    return <Glare
+    className={className}
+    style={style}
+    blur={blur}
+    opacity={opacity}
+    text={{
         background: `linear-gradient(135deg, rgb(${colorLerp([0x0, 0xff, 0xae], [0xff, 0xee, 0x0], children).join(', ')}), rgb(${colorLerp([0x4d, 0xff, 0x0], [0xff, 0x74, 0x3d], children).join(', ')}))`
-    }}>{Math.round(children * 100)}%</Glare>
+    }}>
+        {Math.round(children * 100)}%
+    </Glare>
 }

@@ -2,12 +2,17 @@ import { useState, useRef, useEffect } from 'react'
 
 import Shader from './Shader'
 import Percentage from './Percentage'
+import PickPraser from '../utility/pick-parser'
 
 export default function OverallStat(){
     const [is_shader, setIsShader] = useState(false)
     const shader = useRef(null)
+    const stat = useRef(null)
 
     useEffect(() => {
+        const pick_parser = new PickPraser()
+        stat.current = pick_parser.getStat()
+
         fetch('./data/shader.glsl')
         .then(res => res.text())
         .then(text => {
@@ -34,7 +39,7 @@ export default function OverallStat(){
 
         { is_shader && shader.current }
         
-        <Percentage className='overall-stat' style={{ position: 'absolute' }}>{1}</Percentage>
+        { stat.current && <Percentage className='overall-stat' style={{ position: 'absolute' }}>{stat.current}</Percentage> }
 
     </div>
 }

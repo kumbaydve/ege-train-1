@@ -14,7 +14,7 @@ export default function LevelPrevRows(){
 
             setIsLevels(true)
 
-            levels.current = text.split('\n').map(name => {
+            levels.current = text.split(/\r?\n|\r/).map(name => {
                 const level_name = name.split(' ')[0]
                 
                 return <LevelPrev key={level_name}>{level_name}</LevelPrev>

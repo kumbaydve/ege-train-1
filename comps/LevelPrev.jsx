@@ -2,8 +2,21 @@ import Percentage from "./Percentage";
 import Select from "./Select";
 import Stat from "./Stat";
 import LinkLit from './LinkLit';
+import { useRef } from "react";
+import { useEffect } from "react";
+import PickPraser from "../utility/pick-parser";
+import { useState } from "react";
 
 export default function LevelPrev({children}){
+    const [stat_ready, setStatReady] = useState(false)
+    const stat = useRef(null)
+
+    useEffect(() => {
+        const pick_parser = new PickPraser()
+        stat.current = pick_parser.getStat(children)
+        setStatReady(true)
+    }, [])
+
     return <LinkLit to={`/type?name=${children}`}>
 
         <h3>{children.toUpperCase().replace('_', ' / ')}</h3>
@@ -31,8 +44,8 @@ export default function LevelPrev({children}){
             width: '100%',
             gap: '1.5rem'
         }}>
-        <Stat>{0.9}</Stat>
-        <Percentage className='lil-stat' blur={0.7} opacity={0.7} style={{alignSelf: 'flex-end'}}>{0.9}</Percentage>
+            { stat_ready && <Stat>{stat.current}</Stat> }
+            { stat_ready && <Percentage className='lil-stat' blur={0.7} opacity={0.7} style={{alignSelf: 'flex-end'}}>{stat.current}</Percentage> }
         </div>
     </LinkLit>
 }

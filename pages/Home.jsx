@@ -2,7 +2,7 @@ import OverallStat from '../comps/OverallStat';
 import LevelPrevRows from '../comps/LevelPrevRows';
 import Select from '../comps/Select';
 
-export default function Home({}){
+export default function Home(){
     return <div className='bg'>
         <OverallStat/>
 

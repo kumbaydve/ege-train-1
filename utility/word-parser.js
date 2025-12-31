@@ -1,32 +1,30 @@
 export default class WordParser{
-    constructor(text, start_from, pick_parser, level){
+    constructor(level, batch, text, pick_parser){
         const splited = text.split(/\r?\n|\r/)
-
+        
         this.number_of_batches = parseInt(splited[0])
-        this.start_from = start_from
+        this.batch = batch
         this.variants = splited[1]
 
-        this.pairs = []
+        this.words = []
 
-        if (start_from === -1){ // all
+        if (this.batch === -1){ // all
             for (let i = 2; i < splited.length; ++i){
-                this.pairs.push(splited[i].split(' '))
+                this.words.push([level, (i - 2) % this.number_of_batches, ...splited[i].split(' ')])
             }
         }
-        else if (start_from === -2){ // worst
-            this.pairs = pick_parser.getWorst(level)
+        else if (this.batch === -2){ // worst
+            this.words = pick_parser.getWorst(level)
         }
         else{ // normal
-            const delta = parseInt(splited[0])
-
-            for (let i = this.start_from + 2; i < splited.length; i += delta){
-                this.pairs.push(splited[i].split(' '))
+            for (let i = this.batch + 2; i < splited.length; i += this.number_of_batches){
+                this.words.push([level, this.batch, ...splited[i].split(' ')])
             }
         }
     }
 
     shuffle(){
-        let currentIndex = this.pairs.length
+        let currentIndex = this.words.length
         let randomIndex
         let temporary
     
@@ -34,17 +32,17 @@ export default class WordParser{
             randomIndex = Math.floor(Math.random() * currentIndex)
             --currentIndex
     
-            temporary = this.pairs[currentIndex]
-            this.pairs[currentIndex] = this.pairs[randomIndex]
-            this.pairs[randomIndex] = temporary
+            temporary = this.words[currentIndex]
+            this.words[currentIndex] = this.words[randomIndex]
+            this.words[randomIndex] = temporary
         }
     }
 
     pair(ix){
-        return this.pairs[ix]
+        return this.words[ix]
     }
 
     ended(ix){
-        return ix >= this.pairs.length
+        return ix >= this.words.length
     }
 }

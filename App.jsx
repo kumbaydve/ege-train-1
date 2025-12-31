@@ -10,7 +10,7 @@ export default function App(){
 	const [mouse_pos, setMousePos] = useState([-1, -1])
 
 	useEffect(() => {
-		const handleMouseMove = event => {
+		const handleMouseMove = (event) => {
 			setMousePos([event.pageX, event.pageY])
 		}
 

@@ -25,10 +25,10 @@ export default function App(){
 		<MouseContext.Provider value={mouse_pos}>
 
 			<Routes>
-				<Route path='/' element={<Home/>}/>
+				<Route path='/ege-train-1' element={<Home/>}/>
 
-				<Route path='/type' element={<SelectBatch/>}/>
-				<Route path='/batch' element={<Batch/>}/>
+				<Route path='/ege-train-1/type' element={<SelectBatch/>}/>
+				<Route path='/ege-train-1/batch' element={<Batch/>}/>
 
 				{/* <Route path='*' element={<Nil/>}/> */}
 			</Routes>

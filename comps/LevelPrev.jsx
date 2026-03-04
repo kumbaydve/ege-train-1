@@ -27,7 +27,7 @@ export default function LevelPrev({children}){
         setStatReady(true)
     }, [])
 
-    return <LinkLit to={`/type?name=${children}`}>
+    return <LinkLit to={`/ege-train-1/type?name=${children}`}>
 
         <h3 className="font-bold">{children.toUpperCase().replace('_', ' / ')}</h3>
         

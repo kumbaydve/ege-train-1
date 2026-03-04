@@ -4,7 +4,7 @@ import Shader from './Shader'
 import Percentage from './Percentage'
 import PickPraser from '../utility/pick-parser'
 
-const shader = `precision highp float;
+const shader_code = `precision highp float;
 uniform vec2 uResolution;
 uniform float uTime;
 
@@ -102,7 +102,7 @@ export default function OverallStat(){
         shader.current = <Shader style={{
             width: '100%',
             height: '100%'
-        }}>{shader}</Shader>
+        }}>{shader_code}</Shader>
     }, [])
 
     return <div

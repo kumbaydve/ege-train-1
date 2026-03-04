@@ -2,21 +2,20 @@ import { useState, useRef, useEffect } from 'react'
 
 import LevelPrev from './LevelPrev'
 
+const all = `пре_при
+н_нн`
+
 export default function LevelPrevRows(){
     const [levels_ready, setLevelsReady] = useState(false)
     const levels = useRef(null)
 
     useEffect(() => {
-        fetch('./data/all.txt')
-        .then(res => res.text())
-        .then(text => {
-            setLevelsReady(true)
+        setLevelsReady(true)
 
-            levels.current = text.split(/\r?\n|\r/).map(name => {
-                const level_name = name.split(' ')[0]
-                
-                return <LevelPrev key={level_name}>{level_name}</LevelPrev>
-            })
+        levels.current = all.split(/\r?\n|\r/).map(name => {
+            const level_name = name.split(' ')[0]
+            
+            return <LevelPrev key={level_name}>{level_name}</LevelPrev>
         })
     }, [])
 

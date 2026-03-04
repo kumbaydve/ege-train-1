@@ -1,8 +1,24 @@
 import OverallStat from '../comps/OverallStat';
 import LevelPrevRows from '../comps/LevelPrevRows';
 import Select from '../comps/Select';
+import { useState, useRef, useEffect } from 'react';
+import PickPraser from '../utility/pick-parser';
 
 export default function Home(){
+    const [worst_ready, setWorstReady] = useState(false)
+    const worst = useRef(null)
+
+    useEffect(() => {
+        const pick_parser = new PickPraser()
+        const worst_list = pick_parser.getWorst(null, 3)
+        
+        if (worst_list.length !== 0){
+            worst.current = worst_list.map((word) => <Select size='1.7rem'>{word.slice(2)}</Select>)
+        }
+
+        setWorstReady(true)
+    }, [])
+
     return <div className='bg'>
         <OverallStat/>
 
@@ -20,9 +36,7 @@ export default function Home(){
                 filter: 'blur(2.2rem)'
             }}></div>
 
-            <Select size='1.7rem'>{['пр.велегия', 'и']}</Select>
-            <Select size='1.7rem'>{['пр.чуда', 'и']}</Select>
-            <Select size='1.7rem'>{['пр.вереда', 'и']}</Select>
+            {worst_ready && worst.current}
             
         </div>
 

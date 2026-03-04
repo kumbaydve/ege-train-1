@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react"
 import PickPraser from "../utility/pick-parser"
 import WordParser from "../utility/word-parser"
 import WordPair from "../comps/WordPair"
+import LevelCompleted from "../comps/LevelCompleted"
 
 export default function SelectType(){
     const location = useLocation()
@@ -27,6 +28,7 @@ export default function SelectType(){
             word_parser.current = new WordParser(level, batch, text, pick_parser.current)
 
             word_parser.current.shuffle()
+            console.log(word_parser.current.words);
 
             setIx(0)
         })
@@ -67,11 +69,11 @@ export default function SelectType(){
     }}>
         {
             ix === -1 ?
-            <h1>... ПОДОЖДИТЕ ...</h1>
+            <h1>...ПОДОЖДИТЕ...</h1>
             :
             (
                 ix === word_parser.current.words.length ?
-                <h1 className="text-white text-5xl">ВСЁ</h1>
+                <LevelCompleted/>
                 :
                 <WordPair
                 word={word_parser.current.pair(ix)[2]}

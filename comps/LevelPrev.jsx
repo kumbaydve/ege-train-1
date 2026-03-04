@@ -10,10 +10,20 @@ import { useState } from "react";
 export default function LevelPrev({children}){
     const [stat_ready, setStatReady] = useState(false)
     const stat = useRef(null)
+    const words = useRef(null)
 
     useEffect(() => {
         const pick_parser = new PickPraser()
         stat.current = pick_parser.getStat(children)
+        const worst = pick_parser.getWorst(children, 3)
+        
+        if (worst.length !== 0){
+            words.current = worst.map((word) => <Select color='#ccc' size='1.25rem'>{word.slice(2)}</Select>)
+        }
+        else{
+            words.current = <h4 className="text-gray-500">Неправильных слов нет</h4>
+        }
+
         setStatReady(true)
     }, [])
 
@@ -25,14 +35,12 @@ export default function LevelPrev({children}){
             columnGap: '1rem',
             padding: '0 1rem'
         }}>
-            <Select color='#ccc' size='1.25rem'>{['пр.велегия', 'и']}</Select>
-            <Select color='#ccc' size='1.25rem'>{['пр.велегия', 'и']}</Select>
-            <Select color='#ccc' size='1.25rem'>{['пр.велегия', 'и']}</Select>
+            {stat_ready && words.current}
         </div>
 
         <div className="flex items-center w-full gap-6">
-            { stat_ready && <Stat>{stat.current}</Stat> }
-            { stat_ready && <Percentage className='lil-stat' blur={0.7} opacity={0.7} style={{alignSelf: 'flex-end'}}>{stat.current}</Percentage> }
+            {stat_ready && <Stat>{stat.current}</Stat>}
+            {stat_ready && <Percentage className='lil-stat' blur={0.7} opacity={0.7} style={{alignSelf: 'flex-end'}}>{stat.current}</Percentage>}
         </div>
     </LinkLit>
 }

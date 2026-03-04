@@ -4,13 +4,15 @@ export default class WordParser{
         
         this.number_of_batches = parseInt(splited[0])
         this.batch = batch
-        this.variants = splited[1]
+        this.variants = splited[1].split(' ')
 
         this.words = []
 
         if (this.batch === -1){ // all
             for (let i = 2; i < splited.length; ++i){
-                this.words.push([level, (i - 2) % this.number_of_batches, ...splited[i].split(' ')])
+                const split_ix = splited[i].lastIndexOf(' ')
+
+                this.words.push([level, (i - 2) % this.number_of_batches, splited[i].slice(0, split_ix), splited[i].slice(split_ix + 1)])
             }
         }
         else if (this.batch === -2){ // worst
@@ -18,7 +20,9 @@ export default class WordParser{
         }
         else{ // normal
             for (let i = this.batch + 2; i < splited.length; i += this.number_of_batches){
-                this.words.push([level, this.batch, ...splited[i].split(' ')])
+                const split_ix = splited[i].lastIndexOf(' ')
+                
+                this.words.push([level, this.batch, splited[i].slice(0, split_ix), splited[i].slice(split_ix + 1)])
             }
         }
     }

@@ -10,8 +10,10 @@ export default function Glare({style, className, children, text, blur, opacity})
 		
 		<span className={'absolute select-none ' + className} style={{
 			...common_style,
-			filter: `blur(${blur !== undefined ? blur : 1.1}rem)`,
-			opacity: opacity !== undefined ? opacity : .9,
+			//filter: `blur(${blur !== undefined ? blur : 1.1}rem)`,
+			//opacity: opacity !== undefined ? opacity : .9,
+			filter: `blur(${blur ?? 1.1}rem)`,
+			opacity: opacity ?? .9,
 			...text
 		}}>{children}</span>
 

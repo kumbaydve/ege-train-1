@@ -19,7 +19,8 @@ export default function SelectType(){
             const words = text.split(/\r?\n|\r/)
             const n = parseInt(words[0])
 
-            batches.current = words.slice(2, n + 2).map((word, i) => <BatchPrev key={i} level={name} ix={i} word={word}/>)
+            batches.current = words.slice(2, n + 2).map((word, i) => <BatchPrev key={i} level={name} batch={i} word={word}/>)
+            
             setBatchesReady(true)
         })
     }, [])

@@ -30,8 +30,8 @@ export default class PickPraser{
             }
         }
         else{
-            for (const level_iter of this.picks){
-                for (const batch of this.picks[level_iter]){
+            for (const level_iter in this.picks){
+                for (const batch in this.picks[level_iter]){
                     for (const word in this.picks[level_iter][batch]){
                         const sum = this.picks[level_iter][batch][word][0].reduce((was, e) => was + e)
         
@@ -54,12 +54,12 @@ export default class PickPraser{
         let successes = 0
         let total = 0
         
-        if (level){
+        if (level !== undefined){
             if (!this.picks[level]){
                 return 0
             }
 
-            if (batch){
+            if (batch !== undefined){
                 if (!this.picks[level][batch]){
                     return 0
                 }

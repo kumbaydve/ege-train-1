@@ -15,7 +15,7 @@ export default function BatchPrev({level, batch, word}){
         setStatReady(true)
     }, [])
 
-    return <LinkLit to={`/batch?level=${level}&batch=${batch}`}>
+    return <LinkLit to={`/ege-train-1/batch?level=${level}&batch=${batch}`}>
 
         <h3>{batch + 1}. {word.split(' ')[0].replace('.', ' ' + word.split(' ')[1] + ' ').toUpperCase()}</h3>
 

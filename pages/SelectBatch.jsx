@@ -110,7 +110,7 @@ export default function SelectType(){
     const name = params.get('name')
 
     useEffect(() => {
-        const text = word_sets[level]
+        const text = word_sets[name]
         const words = text.split(/\r?\n|\r/)
         const n = parseInt(words[0])
 

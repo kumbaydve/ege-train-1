@@ -124,7 +124,6 @@ export default function SelectType(){
         word_parser.current = new WordParser(level, batch, text, pick_parser.current)
 
         word_parser.current.shuffle()
-        console.log(word_parser.current.words);
 
         setIx(0)
     }, [])

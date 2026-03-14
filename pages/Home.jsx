@@ -13,19 +13,19 @@ export default function Home(){
         const worst_list = pick_parser.getWorst(null, 3)
         
         if (worst_list.length !== 0){
-            worst.current = worst_list.map((word) => <Select size='1.7rem'>{word.slice(2)}</Select>)
+            worst.current = worst_list.map((word) => <Select key={word} size='1.7rem'>{word.slice(2)}</Select>)
         }
 
         setWorstReady(true)
     }, [])
 
-    return <div className='bg'>
-        <div className='text-red-600'>DEBUG {navigator.maxTouchPoints}</div>
+    return <div className='bg overflow-hidden'>
+        {/* <div className='text-red-600'>DEBUG {navigator.maxTouchPoints}</div> */}
 
         <OverallStat/>
 
         <div
-        className='relative flex gap-6'
+        className='relative flex gap-6 max-w-dvw flex-wrap'
         style={{
             marginBottom: '13vh'
         }}>

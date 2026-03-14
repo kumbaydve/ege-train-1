@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom"
 import BatchPrev from "../comps/BatchPrev"
 import { useState, useRef, useEffect } from "react"
 import LinkLit from "../comps/LinkLit"
+import BASE_URL from "../utility/constants"
 
 const word_sets = {
     'пре_при': `2
@@ -125,8 +126,8 @@ export default function SelectType(){
         justifyContent: 'center'
     }}>
         <div className="flex gap-6 flex-wrap justify-center">
-            <LinkLit to={`/batch?level=${name}&batch=-1`}><h3>ВСЕ</h3></LinkLit>
-            <LinkLit to={`/batch?level=${name}&batch=-2`}><h3>СЛОЖНЫЕ</h3></LinkLit>
+            <LinkLit to={`${BASE_URL}/batch?level=${name}&batch=-1`}><h3>ВСЕ</h3></LinkLit>
+            <LinkLit to={`${BASE_URL}/batch?level=${name}&batch=-2`}><h3>СЛОЖНЫЕ</h3></LinkLit>
         </div>
 
         {batches_ready && <div className="flex flex-wrap justify-center gap-6 p-6">

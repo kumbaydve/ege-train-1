@@ -3,6 +3,7 @@ import Stat from "./Stat"
 import LinkLit from "./LinkLit"
 import { useState, useRef, useEffect } from "react"
 import PickPraser from "../utility/pick-parser"
+import BASE_URL from '../utility/constants'
 
 export default function BatchPrev({level, batch, word}){
     const [stat_ready, setStatReady] = useState(false)
@@ -15,7 +16,7 @@ export default function BatchPrev({level, batch, word}){
         setStatReady(true)
     }, [])
 
-    return <LinkLit to={`/ege-train-1/batch?level=${level}&batch=${batch}`}>
+    return <LinkLit to={`${BASE_URL}/batch?level=${level}&batch=${batch}`}>
 
         <h3>{batch + 1}. {word.split(' ')[0].replace('.', ' ' + word.split(' ')[1] + ' ').toUpperCase()}</h3>
 

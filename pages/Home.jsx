@@ -20,6 +20,8 @@ export default function Home(){
     }, [])
 
     return <div className='bg'>
+        <div className='text-red-600'>DEBUG {navigator.maxTouchPoints}</div>
+
         <OverallStat/>
 
         <div

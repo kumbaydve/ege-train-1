@@ -108,10 +108,9 @@ export default function OverallStat(){
     return <div
     className='flex items-center justify-center'
     style={{
-        //maxWidth: '100%',
-        //width: '50%',
-        //minHeight: '55vh',
         height: '25rem',
+        maxWidth: '100vw',
+        //maxHeight: '55vh',
         marginTop: '5vh',
         aspectRatio: 2.5
     }}>
@@ -119,7 +118,7 @@ export default function OverallStat(){
         {shader_ready && shader.current}
         
         {/* {stat.current && <Percentage text={{fontSize: '5vw'}} className='overall-stat' style={{position: 'absolute'}}>{stat.current}</Percentage>} */}
-        {stat.current && <Percentage className='overall-stat' style={{position: 'absolute'}}>{stat.current}</Percentage>}
+        {stat.current && <Percentage className='overall-stat' style={{position: 'absolute'}}>{stat.current ?? 0}</Percentage>}
 
     </div>
 }

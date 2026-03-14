@@ -1,13 +1,13 @@
 import { useContext, useRef } from 'react'
 import { MouseContext } from '../App'
 
-export default function BorderLit({children, style}){
+export default function BorderLit({children, style, className}){
     const mouse_pos = useContext(MouseContext)
     const self = useRef(null)
 
     return <div
     ref={self}
-    className='relative overflow-hidden'
+    className={'relative overflow-hidden ' + className}
     style={{
         padding: 0.8,
         ...style

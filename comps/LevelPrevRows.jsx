@@ -19,7 +19,7 @@ export default function LevelPrevRows(){
         })
     }, [])
 
-    return levels_ready && <div className='flex flex-wrap justify-center gap-6 p-6'>
+    return levels_ready && <div className='flex flex-wrap justify-center gap-6 p-6 max-w-dvw'>
         {levels.current}
     </div>
 }

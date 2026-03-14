@@ -124,7 +124,7 @@ export default function SelectType(){
     style={{
         justifyContent: 'center'
     }}>
-        <div className="flex gap-6">
+        <div className="flex gap-6 flex-wrap justify-center">
             <LinkLit to={`/batch?level=${name}&batch=-1`}><h3>ВСЕ</h3></LinkLit>
             <LinkLit to={`/batch?level=${name}&batch=-2`}><h3>СЛОЖНЫЕ</h3></LinkLit>
         </div>

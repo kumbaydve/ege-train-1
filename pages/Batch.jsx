@@ -157,7 +157,7 @@ export default function SelectType(){
     }
 
     return <div
-    className='bg'
+    className='bg max-w-dvw p-6'
     style={{
         justifyContent: 'center'
     }}>

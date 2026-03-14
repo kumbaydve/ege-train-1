@@ -25,7 +25,7 @@ export default function Home(){
         <OverallStat/>
 
         <div
-        className='relative flex gap-6 max-w-dvw flex-wrap'
+        className='relative flex gap-6 max-w-dvw flex-wrap justify-center px-6'
         style={{
             marginBottom: '13vh'
         }}>

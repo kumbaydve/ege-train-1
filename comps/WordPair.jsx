@@ -1,5 +1,12 @@
 export default function WordPair({word, variants, pick, right}){
-    const common_class = "px-16 py-5 rounded-2xl text-white text-4xl cursor-pointer relative max-w-dvw"
+    let common_class = 'px-16 py-5 rounded-2xl text-white cursor-pointer relative max-w-dvw '
+    
+    if (navigator.maxTouchPoints === 0){
+        common_class += 'text-4xl'
+    }
+    else{
+        common_class += 'text-3xl'
+    }
 
     return <div className="flex flex-wrap justify-center gap-6">
         <div

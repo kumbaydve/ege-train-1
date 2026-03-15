@@ -3,6 +3,8 @@ import { createContext, useState, useEffect } from 'react';
 import Home from "./pages/Home";
 import SelectBatch from './pages/SelectBatch';
 import Batch from './pages/Batch';
+import BASE_URL from './utility/constants';
+import Nil from './pages/Nil';
 
 export const MouseContext = createContext([-1, -1])
 
@@ -25,12 +27,12 @@ export default function App(){
 		<MouseContext.Provider value={mouse_pos}>
 
 			<Routes>
-				<Route path='/ege-train-1' element={<Home/>}/>
+				<Route path={BASE_URL} element={<Home/>}/>
 
-				<Route path='/ege-train-1/type' element={<SelectBatch/>}/>
-				<Route path='/ege-train-1/batch' element={<Batch/>}/>
+				<Route path={`${BASE_URL}/type`} element={<SelectBatch/>}/>
+				<Route path={`${BASE_URL}/batch`} element={<Batch/>}/>
 
-				{/* <Route path='*' element={<Nil/>}/> */}
+				<Route path='*' element={<Nil/>}/>
 			</Routes>
 
 		</MouseContext.Provider>

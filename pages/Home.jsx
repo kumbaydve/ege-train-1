@@ -3,6 +3,7 @@ import LevelPrevRows from '../comps/LevelPrevRows';
 import Select from '../comps/Select';
 import { useState, useRef, useEffect } from 'react';
 import PickPraser from '../utility/pick-parser';
+import NavBar from '../comps/NavBar';
 
 export default function Home(){
     const [worst_ready, setWorstReady] = useState(false)
@@ -21,6 +22,8 @@ export default function Home(){
 
     return <div className='bg overflow-hidden'>
         {/* <div className='text-red-600'>DEBUG {navigator.maxTouchPoints}</div> */}
+
+        <NavBar ix={0}/>
 
         <OverallStat/>
 

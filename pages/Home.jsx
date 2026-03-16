@@ -4,8 +4,9 @@ import Select from '../comps/Select';
 import { useState, useRef, useEffect } from 'react';
 import PickPraser from '../utility/pick-parser';
 import NavBar from '../comps/NavBar';
+import { memo } from 'react';
 
-export default function Home(){
+const Home = memo(() => {
     const [worst_ready, setWorstReady] = useState(false)
     const worst = useRef(null)
 
@@ -47,4 +48,6 @@ export default function Home(){
 
         <LevelPrevRows/>
     </div>
-}
+})
+
+export default Home

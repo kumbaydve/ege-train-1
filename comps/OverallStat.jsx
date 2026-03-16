@@ -110,14 +110,12 @@ export default function OverallStat(){
     style={{
         height: '25rem',
         maxWidth: '100vw',
-        //maxHeight: '55vh',
         marginTop: '5vh',
         aspectRatio: 2.5
     }}>
 
         {shader_ready && shader.current}
         
-        {/* {stat.current && <Percentage text={{fontSize: '5vw'}} className='overall-stat' style={{position: 'absolute'}}>{stat.current}</Percentage>} */}
         {stat.current && <Percentage className='overall-stat' style={{position: 'absolute'}}>{stat.current ?? 0}</Percentage>}
 
     </div>

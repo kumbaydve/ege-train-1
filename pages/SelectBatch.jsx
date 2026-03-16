@@ -4,6 +4,7 @@ import BatchPrev from "../comps/BatchPrev"
 import { useState, useRef, useEffect } from "react"
 import LinkLit from "../comps/LinkLit"
 import BASE_URL from "../utility/constants"
+import { memo } from "react"
 
 const word_sets = {
     'пре_при': `2
@@ -102,7 +103,7 @@ const word_sets = {
 стра.ый нн`
 }
 
-export default function SelectType(){
+const SelectType = memo(() => {
     const location = useLocation()
     const params = new URLSearchParams(location.search)
 
@@ -134,4 +135,6 @@ export default function SelectType(){
             {batches.current}
         </div>}
     </div>
-}
+})
+
+export default SelectType

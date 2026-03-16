@@ -5,6 +5,7 @@ import PickPraser from "../utility/pick-parser"
 import WordParser from "../utility/word-parser"
 import WordPair from "../comps/WordPair"
 import LevelCompleted from "../comps/LevelCompleted"
+import { memo } from "react"
 
 const word_sets = {
     'пре_при': `2
@@ -103,7 +104,7 @@ const word_sets = {
 стра.ый нн`
 }
 
-export default function SelectType(){
+const SelectType = memo(() => {
     const location = useLocation()
     const params = new URLSearchParams(location.search)
 
@@ -177,4 +178,6 @@ export default function SelectType(){
             )
         }
     </div>
-}
+})
+
+export default SelectType

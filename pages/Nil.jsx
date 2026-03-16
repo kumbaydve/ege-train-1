@@ -1,6 +1,7 @@
+import { memo } from "react";
 import Glare from "../comps/Glare";
 
-export default function Nil(){
+const Nil = memo(() => {
     return <div className="bg" style={{
         justifyContent: 'center'
     }}>
@@ -22,4 +23,6 @@ export default function Nil(){
             ИДИТЕ НАЗАД
         </Glare>
     </div>
-}
+})
+
+export default Nil

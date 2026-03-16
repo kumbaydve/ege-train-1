@@ -1,11 +1,12 @@
 import { useState, useEffect, useRef } from "react"
 import LinkLit from "../comps/LinkLit"
 import BASE_URL from "../utility/constants"
+import { memo } from "react"
 
 const titles_string = `№1. Виды слов
 №22. Литературные приёмы`
 
-export default function SelectTheory(){
+const SelectTheory = memo(() => {
     const [theory_ready, setTheoryReady] = useState(false)
     const theory = useRef(null)
 
@@ -19,4 +20,6 @@ export default function SelectTheory(){
     return <div className="bg p-6 gap-6">
         {theory_ready && theory.current}
     </div>
-}
+})
+
+export default SelectTheory

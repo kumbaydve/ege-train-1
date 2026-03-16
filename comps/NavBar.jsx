@@ -4,7 +4,7 @@ import BASE_URL from "../utility/constants"
 
 const pages = [
     ['ТЕСТЫ', ''],
-    ['ТЕОРИЯ', '/theory']
+    ['ТЕОРИЯ', '/select-theory']
 ]
 
 export default function NavBar({ix}){
@@ -17,8 +17,8 @@ export default function NavBar({ix}){
         setAnchorsReady(true)
     }, [])
 
-    return <nav className="fixed w-full flex justify-center gap-10 p-2 backdrop-hue-rotate-180" style={{
-        backdropFilter: 'blur(0.7rem) grayscale(0.3)'
+    return <nav className="fixed w-full flex justify-center gap-10 p-3 z-20" style={{
+        backdropFilter: 'blur(0.7rem)'
     }}>
         {anchors_ready && anchors.current}
     </nav>

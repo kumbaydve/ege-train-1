@@ -126,8 +126,8 @@ export default function SelectType(){
         justifyContent: 'center'
     }}>
         <div className="flex gap-6 flex-wrap justify-center max-w-dvw p-6 pb-0">
-            <LinkLit to={`${BASE_URL}/batch?level=${name}&batch=-1`}><h3>ВСЕ</h3></LinkLit>
-            <LinkLit to={`${BASE_URL}/batch?level=${name}&batch=-2`}><h3>СЛОЖНЫЕ</h3></LinkLit>
+            <LinkLit to={`${BASE_URL}/batch?level=${name}&batch=-1`} inner_style={{padding: '1rem 2.5rem'}}><h3>ВСЕ</h3></LinkLit>
+            <LinkLit to={`${BASE_URL}/batch?level=${name}&batch=-2`} inner_style={{padding: '1rem 2.5rem'}}><h3>СЛОЖНЫЕ</h3></LinkLit>
         </div>
 
         {batches_ready && <div className="flex flex-wrap justify-center gap-6 p-6 max-w-dvw">

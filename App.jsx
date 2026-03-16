@@ -5,6 +5,7 @@ import SelectBatch from './pages/SelectBatch';
 import Batch from './pages/Batch';
 import BASE_URL from './utility/constants';
 import Nil from './pages/Nil';
+import SelectTheory from './pages/SelectTheory';
 
 export const MouseContext = createContext([-1, -1])
 
@@ -31,6 +32,7 @@ export default function App(){
 
 				<Route path={`${BASE_URL}/type`} element={<SelectBatch/>}/>
 				<Route path={`${BASE_URL}/batch`} element={<Batch/>}/>
+				<Route path={`${BASE_URL}/select-theory`} element={<SelectTheory/>}/>
 
 				<Route path='*' element={<Nil/>}/>
 			</Routes>
